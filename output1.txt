@@ -1,0 +1,41 @@
+are you Hi GongLei how 
+am fine thank you and you I 
+and you I am fine thank you 
+am fine too nice to meet you I 
+fine thank you and you I am 
+fine too nice to meet you I am 
+GongLei how are you Hi 
+Hi GongLei how are you 
+how are you Hi GongLei 
+I am fine thank you and you 
+I am fine too nice to meet you 
+meet you I am fine too nice to 
+meet you too Nice to 
+nice to meet you I am fine too 
+Nice to meet you too 
+thank you and you I am fine 
+too nice to meet you I am fine 
+to meet you I am fine too nice 
+to meet you too Nice 
+too Nice to meet you 
+you Hi GongLei how are 
+you and you I am fine thank 
+you I am fine thank you and 
+you I am fine too nice to meet 
+you too Nice to meet 
+
+--------------主程序-子程序文字说明--------------
+主程序/子程序风格将系统组织成层次结构，包括一个主程序和一系列子程序。
+主程序是系统的控制器，负责调度各子程序的执行。各子程序又是一个局部的控制器，负责调度其子子程序的执行主程序/子程序风格的主要实现机制是模块实现，它将每个子程序都实现为一个模块, 主程序实现为整个系统的起始模块(在很多语言中，即为包含main函数的模块)。依照抽象规格的层次关系，实现模块也被组织为相应的层次机构，通过导入/导出关系相连接。
+需要强调的是，虽然主程序/子程序风格非常类似于结构化程序的结构,但是主程序/子程序风格是基于部件与连接件建立的高层结构。
+它的部件不同于程序，而是更加粗粒度的模块。而且，在部件的实现模块内部,可以使用结构化分析方法，也可以使用面向对象方法，这并不妨碍整个系统的高层结构符合主程序/子程序风格的约定。
+
+--------------关键代码--------------
+public static void main(String[] args) {
+
+        demo1 kwic = new demo1();
+        kwic.input("C:\\Users\\DELL\\Desktop\\input.txt");
+        kwic.shift();
+        kwic.alphabetizer();
+        kwic.output("C:\\Users\\DELL\\Desktop\\output.txt");
+    }

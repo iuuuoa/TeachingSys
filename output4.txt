@@ -1,0 +1,74 @@
+are you Hi GongLei how 
+am fine thank you and you I 
+and you I am fine thank you 
+am fine too nice to meet you I 
+fine thank you and you I am 
+fine too nice to meet you I am 
+GongLei how are you Hi 
+Hi GongLei how are you 
+how are you Hi GongLei 
+I am fine thank you and you 
+I am fine too nice to meet you 
+meet you I am fine too nice to 
+meet you too Nice to 
+nice to meet you I am fine too 
+Nice to meet you too 
+thank you and you I am fine 
+too nice to meet you I am fine 
+to meet you I am fine too nice 
+to meet you too Nice 
+too Nice to meet you 
+you Hi GongLei how are 
+you and you I am fine thank 
+you I am fine thank you and 
+you I am fine too nice to meet 
+you too Nice to meet 
+
+--------------管道-过滤器文字说明--------------
+  管道-过滤器模式的体系结构是面向数据流的软件体系结构，主要用于实现复杂的数据多步转换处理。每个处理步骤封装在一个过滤器组件中。数据通过相邻过滤器之间的管道传输。
+
+--------------关键代码--------------
+管道类：
+public class Pipe {
+    private Scanner pipeReader;
+    private PrintWriter pipeWriter;
+    Pipe(){
+        PipedWriter pipedWriter = new PipedWriter();
+        PipedReader pipedReader = new PipedReader();
+        try {
+            pipedWriter.connect(pipedReader);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        pipeReader = new Scanner(pipedReader);
+        pipeWriter = new PrintWriter(pipedWriter);
+    }
+    public String readerLine(){
+        return pipeReader.nextLine();
+    }
+    public boolean hashNextLine(){
+        return pipeReader.hasNext();
+    }
+    public void writerLine(String strLine){
+        pipeWriter.println(strLine);
+    }
+    public void closeReader(){
+        pipeReader.close();
+    }
+    public void closeWriter(){
+        pipeWriter.close();
+    }
+}
+
+过滤器抽象类：
+public abstract class Filter {
+    protected Pipe input;
+    protected Pipe output;
+
+    public Filter(Pipe input, Pipe output) {
+        this.input = input;
+        this.output = output;
+    }
+    protected abstract void transform() throws IOException;
+}
+
